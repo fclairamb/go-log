@@ -3,7 +3,7 @@ package gokit
 import (
 	"testing"
 
-	"github.com/fclairamb/log/logtest"
+	"github.com/fclairamb/go-log/logtest"
 )
 
 func TestGoKit(t *testing.T) {

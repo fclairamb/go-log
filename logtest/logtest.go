@@ -6,7 +6,7 @@ package logtest
 import (
 	"testing"
 
-	"github.com/fclairamb/log"
+	"github.com/fclairamb/go-log"
 )
 
 // TestLogger is shared test function

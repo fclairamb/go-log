@@ -2,7 +2,7 @@
 package noop
 
 import (
-	"github.com/fclairamb/log"
+	"github.com/fclairamb/go-log"
 )
 
 // NewNoOpLogger creates a no-op logger
