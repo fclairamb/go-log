@@ -1,4 +1,4 @@
-// Shared testing code for loggers
+// Package logtest provides testing code for loggers
 package logtest
 
 // https://stackoverflow.com/a/31794241
@@ -9,6 +9,7 @@ import (
 	"github.com/fclairamb/log"
 )
 
+// TestLogger is shared test function
 func TestLogger(t *testing.T, logger log.Logger) {
 	logger = logger.With("test", t.Name())
 	logger.Debug("This is debug")

@@ -1,3 +1,4 @@
+// Package noop provides a No-Operation logger
 package noop
 
 import (
