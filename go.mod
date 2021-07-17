@@ -1,4 +1,4 @@
-module github.com/fclairamb/log
+module github.com/fclairamb/go-log
 
 go 1.16
 

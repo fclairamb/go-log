@@ -3,7 +3,7 @@ package noop
 import (
 	"testing"
 
-	"github.com/fclairamb/log/logtest"
+	"github.com/fclairamb/go-log/logtest"
 )
 
 func TestNoOp(t *testing.T) {

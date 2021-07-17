@@ -8,7 +8,7 @@ import (
 	gklog "github.com/go-kit/kit/log"
 	gklevel "github.com/go-kit/kit/log/level"
 
-	"github.com/fclairamb/log"
+	"github.com/fclairamb/go-log"
 )
 
 func (logger *gKLogger) checkError(err error) {
