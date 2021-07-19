@@ -42,20 +42,18 @@ linters-settings:
       # enable or disable analyzers by name
       enable:
         - atomicalign
+        - fieldalignment
       enable-all: false
       disable:
         - shadow
       disable-all: false
-    golint:
-      # minimal confidence for issues, default is 0.8
-      min-confidence: 0
     gofmt:
       # simplify code: gofmt with `-s` option, true by default
       simplify: true
     goimports:
       # put imports beginning with prefix after 3rd-party packages;
       # it's a comma-separated list of prefixes
-      local-prefixes: github.com/fclairamb/ftpserverlib
+      local-prefixes: github.com/fclairamb/go-log
     gocyclo:
       # minimal code complexity to report, 30 by default (but we recommend 10-20)
       min-complexity: 15
@@ -169,10 +167,10 @@ linters:
         - dupl
         - errcheck
         - exhaustive
-        # - exhaustivestruct
+        - exhaustivestruct
         - exportloopref
         - funlen
-        # - gci
+        - gci
         - gochecknoinits
         # - gochecknoglobals
         - gocognit
@@ -183,25 +181,26 @@ linters:
         - goerr113
         - gofmt
         - goimports
-        - golint
-        # - gomnd
+        # - golint #deprecated
+        - gomnd
         - goprintffuncname
         - gosec
         - gosimple
         - govet
         - ineffassign
-        - interfacer
+        # - interfacer #deprecated
         - lll
-        - maligned
+        # - maligned
         - megacheck
         - misspell
         - nakedret
-        # - nestif
+        - nestif
         - nlreturn
         - prealloc
         - nolintlint
+        - revive
         - rowserrcheck
-        - scopelint
+        # - scopelint #deprecated
         - staticcheck
         - structcheck
         - stylecheck
@@ -211,7 +210,7 @@ linters:
         - unused
         - varcheck
         - whitespace
-        # - wrapcheck
+        - wrapcheck
         - wsl
     fast: false
   
