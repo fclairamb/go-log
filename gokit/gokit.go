@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	gklog "github.com/go-kit/kit/log"
-	gklevel "github.com/go-kit/kit/log/level"
+	gklog "github.com/go-kit/log"
+	gklevel "github.com/go-kit/log/level"
 
 	"github.com/fclairamb/go-log"
 )
