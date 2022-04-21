@@ -170,7 +170,7 @@ linters:
         - exhaustivestruct
         - exportloopref
         - funlen
-        - gci
+        # - gci
         - gochecknoinits
         # - gochecknoglobals
         - gocognit
