@@ -13,6 +13,7 @@ func convertArgs(event string, keyvals ...interface{}) []interface{} {
 	args := make([]interface{}, len(keyvals)+1)
 	args[0] = event
 	copy(args[1:], keyvals)
+
 	return args
 }
 
