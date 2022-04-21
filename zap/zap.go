@@ -9,32 +9,28 @@ import (
 	"github.com/fclairamb/go-log"
 )
 
-func convertArgs(event string, keyvals ...interface{}) []interface{} {
-	args := make([]interface{}, len(keyvals)+1)
-	args[0] = event
-	copy(args[1:], keyvals)
-
-	return args
-}
-
 // Debug logs key-values at debug level
 func (logger *zapLogger) Debug(event string, keyvals ...interface{}) {
-	logger.logger.Debug(convertArgs(event, keyvals)...)
+	logger.logger.Debugw(event, keyvals...)
 }
 
 // Info logs key-values at info level
 func (logger *zapLogger) Info(event string, keyvals ...interface{}) {
-	logger.logger.Info(convertArgs(event, keyvals)...)
+	logger.logger.Infow(event, keyvals...)
 }
 
 // Warn logs key-values at warn level
 func (logger *zapLogger) Warn(event string, keyvals ...interface{}) {
-	logger.logger.Warn(convertArgs(event, keyvals)...)
+	logger.logger.Warnw(event, keyvals...)
 }
 
 // Error logs key-values at error level
 func (logger *zapLogger) Error(event string, keyvals ...interface{}) {
-	logger.logger.Error(convertArgs(event, keyvals)...)
+	logger.logger.Errorw(event, keyvals...)
+}
+
+func (logger *zapLogger) Panic(event string, keyvals ...interface{}) {
+	logger.logger.Panicw(event, keyvals...)
 }
 
 // With adds key-values
@@ -50,10 +46,10 @@ func NewWrap(logger *zap.SugaredLogger) log.Logger {
 }
 
 // New creates a logger based on the default log15 logger
-func New() (log.Logger, error) {
-	logger, err := zap.NewProduction()
+func New(options ...zap.Option) (log.Logger, error) {
+	logger, err := zap.NewProduction(options...)
 	if err != nil {
-		return nil, fmt.Errorf("log15: cannot create logger: %w", err)
+		return nil, fmt.Errorf("zap: cannot create logger: %w", err)
 	}
 
 	return NewWrap(logger.Sugar()), nil

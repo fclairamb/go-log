@@ -2,6 +2,8 @@
 package log15
 
 import (
+	"fmt"
+
 	"github.com/inconshreveable/log15"
 
 	"github.com/fclairamb/go-log"
@@ -25,6 +27,12 @@ func (logger *log15Logger) Warn(event string, keyvals ...interface{}) {
 // Error logs key-values at error level
 func (logger *log15Logger) Error(event string, keyvals ...interface{}) {
 	logger.logger.Error(event, keyvals...)
+}
+
+func (logger *log15Logger) Panic(event string, keyvals ...interface{}) {
+	logger.Error(event, keyvals...)
+
+	panic(fmt.Errorf("%s: %s", event, keyvals)) //nolint:goerr113
 }
 
 // With adds key-values

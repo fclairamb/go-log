@@ -42,6 +42,12 @@ func (logger *gKLogger) Error(event string, keyvals ...interface{}) {
 	logger.log(gklevel.Error(logger.logger), event, keyvals...)
 }
 
+func (logger *gKLogger) Panic(event string, keyvals ...interface{}) {
+	logger.Error(event, keyvals...)
+
+	panic(fmt.Errorf("%s: %s", event, keyvals)) //nolint:goerr113
+}
+
 // With adds key-values
 func (logger *gKLogger) With(keyvals ...interface{}) log.Logger {
 	return NewWrap(gklog.With(logger.logger, keyvals...))
