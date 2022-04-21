@@ -4,9 +4,10 @@ package zerolog
 import (
 	"fmt"
 
-	"github.com/fclairamb/go-log"
 	"github.com/rs/zerolog"
 	zlog "github.com/rs/zerolog/log"
+
+	"github.com/fclairamb/go-log"
 )
 
 func addLog(event *zerolog.Event, msg string, keyvals ...interface{}) {
@@ -17,6 +18,7 @@ func addLog(event *zerolog.Event, msg string, keyvals ...interface{}) {
 	event.Msg(msg)
 }
 
+// nolint: gocritic
 func addContext(context zerolog.Context, keyvals ...interface{}) zerolog.Context {
 	for i := 0; i < len(keyvals)-1; i += 2 {
 		context = context.Interface(fmt.Sprint(keyvals[i]), keyvals[i+1])

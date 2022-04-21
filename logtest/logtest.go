@@ -7,8 +7,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/fclairamb/go-log"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/fclairamb/go-log"
 )
 
 // TestLogger is shared test function
