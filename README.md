@@ -35,77 +35,77 @@ It was designed for the [ftpserverlib](https://github.com/fclairamb/ftpserverlib
 
 ### [go-kit/log](https://github.com/go-kit/log)
 ```golang
-
 import (
-	log "github.com/fclairamb/go-log"
-	gokit "github.com/fclairamb/go-log/logkit"
+	"os"
+
+	gklog "github.com/go-kit/log"
+	adapter "github.com/fclairamb/go-log/gokit"
 )
 
 func main() {
-	var logger log.Logger
-	logger = logkit.New()
+	gkLogger := gklog.NewLogfmtLogger(gklog.NewSyncWriter(os.Stdout))
+	logger := adapter.NewWrap(gkLogger)
 
-	logger.Info("Hello world")
+	logger.Info("Hello world !")
 }
 ```
 
 ### [log15](https://github.com/inconshreveable/log15)
 ```golang
-
 import (
-	log "github.com/fclairamb/go-log"
-	log15 "github.com/fclairamb/go-log/log15"
+	"github.com/inconshreveable/log15"
+	adapter "github.com/fclairamb/go-log/log15"
 )
 
 func main() {
-	var logger log.Logger
-	logger = log15.New()
+	log15Logger := log15.New()
+	logger := adapter.NewWrap(log15Logger)
 
-	logger.Info("Hello world")
+	logger.Info("Hello world !")
 }
 ```
 
 ### [zap](https://github.com/uber-go/zap)
 ```golang
 import (
-	log "github.com/fclairamb/go-log"
-	zap "github.com/fclairamb/go-log/zap"
+	"go.uber.org/zap"
+	adapter "github.com/fclairamb/go-log/zap"
 )
 
-func main() {
-	var logger log.Logger
-	logger = zap.New()
+func TestZap(t *testing.T) {
+	innerLogger, _ := zap.NewProduction()
+	logger := adapter.NewWrap(innerLogger.Sugar())
 
-	logger.Info("Hello world")
+	logger.Info("Hello world !")
 }
 ```
 
 ### [zerolog](https://github.com/rs/zerolog/)
 ```golang
 import (
-	log "github.com/fclairamb/go-log"
-	zap "github.com/fclairamb/go-log/zerolog"
+	zerolog "github.com/rs/zerolog/log"
+	adapter "github.com/fclairamb/go-log/zerolog"
 )
 
-func main() {
-	var logger log.Logger
-	logger = zerolog.New()
+func TestZeroLog(t *testing.T) {
+	logger := adapter.NewWrap(&zerolog.Logger)
 
-	logger.Info("Hello world")
+	logger.Info("Hello world !")
 }
+
 ```
 
 ### [logrus](https://github.com/sirupsen/logrus) (not recommended)
 ```golang
 import (
-	log "github.com/fclairamb/go-log"
-	zap "github.com/fclairamb/go-log/logrus"
+	"github.com/sirupsen/logrus" //nolint: depguard
+	adapter "github.com/fclairamb/go-log/logrus"
 )
 
-func main() {
-	var logger log.Logger
-	logger = logrus.New()
+func TestLogrus(t *testing.T) {
+	logrusLogger := logrus.New()
+	logger := adapter.NewWrap(logrusLogger)
 
-	logger.Info("Hello world")
+	logger.Info("Hello world !")
 }
 ```
