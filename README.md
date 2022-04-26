@@ -72,7 +72,7 @@ import (
 	adapter "github.com/fclairamb/go-log/zap"
 )
 
-func TestZap(t *testing.T) {
+func main() {
 	innerLogger, _ := zap.NewProduction()
 	logger := adapter.NewWrap(innerLogger.Sugar())
 
@@ -87,7 +87,7 @@ import (
 	adapter "github.com/fclairamb/go-log/zerolog"
 )
 
-func TestZeroLog(t *testing.T) {
+func main() {
 	logger := adapter.NewWrap(&zerolog.Logger)
 
 	logger.Info("Hello world !")
@@ -102,7 +102,7 @@ import (
 	adapter "github.com/fclairamb/go-log/logrus"
 )
 
-func TestLogrus(t *testing.T) {
+func main() {
 	logrusLogger := logrus.New()
 	logger := adapter.NewWrap(logrusLogger)
 
