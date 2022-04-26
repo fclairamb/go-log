@@ -8,7 +8,7 @@ import (
 )
 
 func TestGoKit(t *testing.T) {
-	logtest.TestLogger(t, NewGKLoggerStdout())
+	logtest.TestLogger(t, New())
 }
 
 type badLogger struct{}
@@ -18,6 +18,6 @@ func (badLogger) Log(keyvals ...interface{}) error {
 }
 
 func TestError(t *testing.T) {
-	logger := NewGKLogger(badLogger{})
+	logger := NewWrap(badLogger{})
 	logger.Info("test")
 }

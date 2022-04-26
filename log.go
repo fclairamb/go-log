@@ -16,6 +16,9 @@ type Logger interface {
 	// Error logging: Major issue
 	Error(event string, keyvals ...interface{})
 
+	// Panic logging: We want to crash
+	Panic(event string, keyvals ...interface{})
+
 	// Context extending interface
 	With(keyvals ...interface{}) Logger
 }

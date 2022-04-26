@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	gklog "github.com/go-kit/kit/log"
-	gklevel "github.com/go-kit/kit/log/level"
+	gklog "github.com/go-kit/log"
+	gklevel "github.com/go-kit/log/level"
 
 	"github.com/fclairamb/go-log"
 )
@@ -42,21 +42,27 @@ func (logger *gKLogger) Error(event string, keyvals ...interface{}) {
 	logger.log(gklevel.Error(logger.logger), event, keyvals...)
 }
 
-// With adds key-values
-func (logger *gKLogger) With(keyvals ...interface{}) log.Logger {
-	return NewGKLogger(gklog.With(logger.logger, keyvals...))
+func (logger *gKLogger) Panic(event string, keyvals ...interface{}) {
+	logger.Error(event, keyvals...)
+
+	panic(fmt.Errorf("%s: %s", event, keyvals)) //nolint:goerr113
 }
 
-// NewGKLogger creates a logger based on go-kit logs
-func NewGKLogger(logger gklog.Logger) log.Logger {
+// With adds key-values
+func (logger *gKLogger) With(keyvals ...interface{}) log.Logger {
+	return NewWrap(gklog.With(logger.logger, keyvals...))
+}
+
+// NewWrap creates a logger based on go-kit logs
+func NewWrap(logger gklog.Logger) log.Logger {
 	return &gKLogger{
 		logger: logger,
 	}
 }
 
-// NewGKLoggerStdout creates a logger based on go-kit logs but with some default parameters
-func NewGKLoggerStdout() log.Logger {
-	return NewGKLogger(gklog.NewLogfmtLogger(gklog.NewSyncWriter(os.Stdout)))
+// New creates a logger based on go-kit logs but with some default parameters
+func New() log.Logger {
+	return NewWrap(gklog.NewLogfmtLogger(gklog.NewSyncWriter(os.Stdout)))
 }
 
 type gKLogger struct {
