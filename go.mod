@@ -3,7 +3,7 @@ module github.com/fclairamb/go-log
 go 1.18
 
 require (
-	github.com/go-kit/log v0.2.0
+	github.com/go-kit/log v0.2.1
 	github.com/inconshreveable/log15 v0.0.0-20201112154412-8562bdadbbac
 	github.com/sirupsen/logrus v1.8.1
 	github.com/stretchr/testify v1.7.1
