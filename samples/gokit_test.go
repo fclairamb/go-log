@@ -7,11 +7,12 @@ import (
 	gklog "github.com/go-kit/log"
 
 	adapter "github.com/fclairamb/go-log/gokit"
+	"github.com/fclairamb/go-log/logtest"
 )
 
-func TestGoKit(_ *testing.T) {
+func TestGoKit(t *testing.T) {
 	gkLogger := gklog.NewLogfmtLogger(gklog.NewSyncWriter(os.Stdout))
 	logger := adapter.NewWrap(gkLogger)
 
-	logger.Info("Hello world !")
+	logtest.TestLogger(t, logger)
 }

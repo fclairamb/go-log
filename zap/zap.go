@@ -1,5 +1,5 @@
-// Package log15 defines a simple implementation of the logging interface
-package log15
+// Package zap defines a simple implementation of the logging interface
+package zap
 
 import (
 	"fmt"

@@ -1,4 +1,4 @@
-package log15
+package zap
 
 import (
 	"errors"
