@@ -12,5 +12,6 @@ func TestTesting(t *gotest.T) {
 }
 
 func TestLevel(t *gotest.T) {
-	NewTestLogger(t, level.Info).Debug("Should not be displayed")
+	logger := NewTestLogger(t, level.Info)
+	logger.Debug("Should not be displayed")
 }

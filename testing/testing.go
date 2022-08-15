@@ -19,14 +19,11 @@ func NewTestLogger(t *testing.T, level level.Level) log.Logger {
 	}
 }
 
+// testLogger is a logger based on the test framework
 type testLogger struct {
 	t       *testing.T
 	context []interface{}
 	level   level.Level
-}
-
-func (t *testLogger) SetLevel(level level.Level) {
-	t.level = level
 }
 
 func (t *testLogger) log(level level.Level, msg string, args []interface{}) {

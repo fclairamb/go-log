@@ -42,3 +42,13 @@ func TestShouldLog(t *testing.T) {
 	a.True(Warning.ShouldLog(Error))
 	a.True(Warning.ShouldLog(Panic))
 }
+
+func TestBadLevel(t *testing.T) {
+	a := assert.New(t)
+
+	a.Panics(func() {
+		FromString("bad")
+	})
+
+	a.Equal("unknown", Level(15).String())
+}
