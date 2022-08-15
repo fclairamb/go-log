@@ -5,6 +5,7 @@ import (
 
 	"go.uber.org/zap"
 
+	"github.com/fclairamb/go-log/logtest"
 	adapter "github.com/fclairamb/go-log/zap"
 )
 
@@ -12,5 +13,5 @@ func TestZap(t *testing.T) {
 	innerLogger, _ := zap.NewProduction()
 	logger := adapter.NewWrap(innerLogger.Sugar())
 
-	logger.Info("Hello world !")
+	logtest.TestLogger(t, logger)
 }
