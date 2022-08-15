@@ -76,7 +76,7 @@ func (t *testLogger) Info(msg string, args ...interface{}) {
 
 func (t *testLogger) Warn(msg string, args ...interface{}) {
 	t.t.Helper()
-	t.log(level.Warn, msg, args)
+	t.log(level.Warning, msg, args)
 }
 
 func (t *testLogger) Error(msg string, args ...interface{}) {

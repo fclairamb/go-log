@@ -5,11 +5,16 @@ package level
 type Level uint8
 
 const (
-	Debug Level = iota // Debug level
-	Info               // Info level
-	Warn               // Warning level
-	Error              // Error level
-	Panic              // Panic level
+	// Debug level
+	Debug Level = iota
+	// Info level
+	Info
+	// Warning level
+	Warning
+	// Error level
+	Error
+	// Panic level
+	Panic
 )
 
 func (l Level) String() string {
@@ -18,7 +23,7 @@ func (l Level) String() string {
 		return "debug"
 	case Info:
 		return "info"
-	case Warn:
+	case Warning:
 		return "warn"
 	case Error:
 		return "error"
@@ -37,7 +42,7 @@ func FromString(s string) Level {
 	case "info":
 		return Info
 	case "warn":
-		return Warn
+		return Warning
 	case "error":
 		return Error
 	case "panic":
