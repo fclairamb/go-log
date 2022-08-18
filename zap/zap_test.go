@@ -28,7 +28,7 @@ func TestFailingZap(t *testing.T) {
 	a := require.New(t)
 
 	logger, err := New(zap.WrapCore(func(core zapcore.Core) zapcore.Core {
-		if err := core.Write(zapcore.Entry{}, nil); err != nil { // nolint: exhaustivestruct
+		if err := core.Write(zapcore.Entry{}, nil); err != nil { //nolint:exhaustivestruct
 			log.Fatal(err)
 		}
 

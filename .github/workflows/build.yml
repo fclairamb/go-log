@@ -11,13 +11,13 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     strategy:
       matrix:
-        go: [ 1.18, 1.17, 1.16 ]
+        go: [ 1.19, 1.18, 1.17 ]
         include:
-          - go: 1.18
+          - go: 1.19
             lint: true
   
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -30,7 +30,7 @@ jobs:
         if: matrix.lint
         uses: golangci/golangci-lint-action@v3
         with:
-          version: v1.45.0
+          version: v1.48.0
 
       # Install Go
       - name: Setup go
