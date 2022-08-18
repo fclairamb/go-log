@@ -18,7 +18,7 @@ func addLog(event *zerolog.Event, msg string, keyvals ...interface{}) {
 	event.Msg(msg)
 }
 
-// nolint: gocritic
+//nolint:gocritic
 func addContext(context zerolog.Context, keyvals ...interface{}) zerolog.Context {
 	for i := 0; i < len(keyvals)-1; i += 2 {
 		context = context.Interface(fmt.Sprint(keyvals[i]), keyvals[i+1])
