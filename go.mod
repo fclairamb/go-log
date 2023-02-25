@@ -7,7 +7,7 @@ require (
 	github.com/inconshreveable/log15 v0.0.0-20221122034931-555555054819
 	github.com/rs/zerolog v1.29.0
 	github.com/sirupsen/logrus v1.9.0
-	github.com/stretchr/testify v1.8.1
+	github.com/stretchr/testify v1.8.2
 	go.uber.org/zap v1.24.0
 )
 
