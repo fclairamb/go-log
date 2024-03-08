@@ -3,7 +3,7 @@ package samples
 import (
 	"testing"
 
-	"github.com/sirupsen/logrus" //nolint: depguard
+	"github.com/sirupsen/logrus"
 
 	adapter "github.com/fclairamb/go-log/logrus"
 	"github.com/fclairamb/go-log/logtest"
