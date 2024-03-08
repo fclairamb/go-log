@@ -4,7 +4,7 @@ package logrus
 import (
 	"fmt"
 
-	"github.com/sirupsen/logrus" //nolint: depguard
+	"github.com/sirupsen/logrus"
 
 	"github.com/fclairamb/go-log"
 )

@@ -13,11 +13,11 @@ func TestGoKit(t *testing.T) {
 
 type badLogger struct{}
 
-func (badLogger) Log(keyvals ...interface{}) error {
+func (badLogger) Log(_ ...interface{}) error {
 	return os.ErrInvalid
 }
 
-func TestError(t *testing.T) {
+func TestError(_ *testing.T) {
 	logger := NewWrap(badLogger{})
 	logger.Info("test")
 }
