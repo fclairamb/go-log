@@ -11,7 +11,7 @@ import (
 )
 
 func (logger *sLogger) log(level stdSLog.Level, event string, keyvals ...interface{}) {
-	logger.logger.Log(logger.ctx, level, event, keyvals...)
+	logger.logger.Log(context.Background(), level, event, keyvals...)
 }
 
 // Debug logs key-values at debug level
@@ -49,7 +49,6 @@ func (logger *sLogger) With(keyvals ...interface{}) log.Logger {
 func NewWrap(logger *stdSLog.Logger) log.Logger {
 	return &sLogger{
 		logger: logger,
-		ctx:    context.Background(),
 	}
 }
 
@@ -60,5 +59,4 @@ func New() log.Logger {
 
 type sLogger struct {
 	logger *stdSLog.Logger
-	ctx    context.Context
 }
