@@ -33,6 +33,19 @@ It was designed for the [ftpserverlib](https://github.com/fclairamb/ftpserverlib
 
 ## Compatible logging frameworks
 
+### [slog](https://pkg.go.dev/log/slog)
+```golang
+import (
+	adapter "github.com/fclairamb/go-log/slog"
+)
+
+func main() {
+	logger := adapter.NewWrap(slog.New())
+
+	logger.Info("Hello world !")
+}
+```
+
 ### [go-kit/log](https://github.com/go-kit/log)
 ```golang
 import (
