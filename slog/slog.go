@@ -1,4 +1,4 @@
-// Package gokit defines a simple implementation of the logging interface
+// Package slog defines a simple implementation of the logging interface
 package slog
 
 import (
