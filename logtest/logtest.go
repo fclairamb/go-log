@@ -29,16 +29,16 @@ func TestLogger(t *testing.T, logger log.Logger) {
 	})
 
 	// Buggy logging
-	t.Run("buggy", func(t *testing.T) {
+	t.Run("buggy", func(_ *testing.T) {
 		logger.Info("Buggy log", "key1", "val1", "key2")
 	})
 
-	t.Run("with", func(t *testing.T) {
+	t.Run("with", func(_ *testing.T) {
 		subLogger := logger.With("key", "val")
 		subLogger.Info("This is info")
 	})
 
-	t.Run("types", func(t *testing.T) {
+	t.Run("types", func(_ *testing.T) {
 		logger.Info(
 			"Types",
 			"string", "string",

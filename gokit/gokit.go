@@ -13,7 +13,7 @@ import (
 
 func (logger *gKLogger) checkError(err error) {
 	if err != nil {
-		fmt.Println("Logging faced this error: ", err)
+		fmt.Println("Logging faced this error: ", err) //nolint:forbidigo
 	}
 }
 

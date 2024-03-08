@@ -15,9 +15,9 @@ jobs:
 
     strategy:
       matrix:
-        go: [ 1.19, 1.18, 1.17 ]
+        go: [ 1.22, 1.21, 1.20 ]
         include:
-          - go: 1.19
+          - go: 1.22
             lint: true
   
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -30,8 +30,7 @@ jobs:
         if: matrix.lint
         uses: golangci/golangci-lint-action@v3
         with:
-          version: v1.48.0
-
+          version: v1.56.2
       # Install Go
       - name: Setup go
         uses: actions/setup-go@v3
@@ -46,13 +45,13 @@ jobs:
         # env:
         #   CGO_ENABLED: 0
         run: |
-          apt-get update && apt-get install gcc -y
+          # apt-get update && apt-get install gcc -y
           go test -parallel 20 -v -race -coverprofile=coverage.txt -covermode=atomic ./...
           bash <(curl -s https://codecov.io/bash)
 
   # For github to have a unique status check name
   build-status:
     needs: build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - run: echo 'All good'
