@@ -5,7 +5,7 @@ go 1.21
 require (
 	github.com/go-kit/log v0.2.1
 	github.com/inconshreveable/log15 v0.0.0-20221122034931-555555054819
-	github.com/rs/zerolog v1.32.0
+	github.com/rs/zerolog v1.33.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.9.0
 	go.uber.org/zap v1.27.0
