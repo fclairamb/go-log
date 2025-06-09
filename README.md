@@ -4,6 +4,8 @@ This library provides a basic API to be integrated with any logging framework. I
 allows to use logging in your libraries without enforcing a particular logging
 framework.
 
+Now that the log/slog exists, it's most probably a much better option to simply switch to it.
+
 Here is it:
 ```golang
 // Logger interface

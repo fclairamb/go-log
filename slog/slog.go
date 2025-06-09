@@ -37,7 +37,7 @@ func (logger *sLogger) Error(event string, keyvals ...interface{}) {
 func (logger *sLogger) Panic(event string, keyvals ...interface{}) {
 	logger.Error(event, keyvals...)
 
-	panic(fmt.Errorf("%s: %s", event, keyvals)) //nolint:goerr113
+	panic(fmt.Errorf("%s: %s", event, keyvals)) //nolint:err113
 }
 
 // With adds key-values

@@ -84,7 +84,7 @@ func (t *testLogger) Error(msg string, args ...interface{}) {
 // We don't _log_ anything but we need to keep a consistent behavior
 
 func (t *testLogger) Panic(msg string, args ...interface{}) {
-	panic(fmt.Errorf("%s: %s", msg, args)) //nolint:goerr113
+	panic(fmt.Errorf("%s: %s", msg, args)) //nolint:err113
 }
 
 func (t *testLogger) With(args ...interface{}) log.Logger {
