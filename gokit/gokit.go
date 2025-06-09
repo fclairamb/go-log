@@ -45,7 +45,7 @@ func (logger *gKLogger) Error(event string, keyvals ...interface{}) {
 func (logger *gKLogger) Panic(event string, keyvals ...interface{}) {
 	logger.Error(event, keyvals...)
 
-	panic(fmt.Errorf("%s: %s", event, keyvals)) //nolint:goerr113
+	panic(fmt.Errorf("%s: %s", event, keyvals)) //nolint:err113
 }
 
 // With adds key-values

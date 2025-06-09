@@ -29,7 +29,7 @@ func (nl *noLogger) Error(string, ...interface{}) {
 // We don't _log_ anything but we need to keep a consistent behavior
 
 func (nl *noLogger) Panic(msg string, args ...interface{}) {
-	panic(fmt.Errorf("%s: %s", msg, args)) //nolint:goerr113
+	panic(fmt.Errorf("%s: %s", msg, args)) //nolint:err113
 }
 
 func (nl *noLogger) With(...interface{}) log.Logger {

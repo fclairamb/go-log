@@ -11,13 +11,13 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     strategy:
       matrix:
-        go: [ 1.22, 1.21 ]
+        go: [ 1.24, 1.23 ]
         include:
-          - go: 1.22
+          - go: 1.24
             lint: true
   
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -28,9 +28,9 @@ jobs:
       # Running golangci-lint
       - name: Linting
         if: matrix.lint
-        uses: golangci/golangci-lint-action@v6
+        uses: golangci/golangci-lint-action@v8
         with:
-          version: v1.56.2
+          version: v2.1.6
       # Install Go
       - name: Setup go
         uses: actions/setup-go@v5
@@ -41,9 +41,6 @@ jobs:
         run: go build -v ./...
 
       - name: Test
-        # We need GCC because of the "go test -race"
-        # env:
-        #   CGO_ENABLED: 0
         run: |
           # apt-get update && apt-get install gcc -y
           go test -parallel 20 -v -race -coverprofile=coverage.txt -covermode=atomic ./...
@@ -52,6 +49,6 @@ jobs:
   # For github to have a unique status check name
   build-status:
     needs: build
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - run: echo 'All good'
