@@ -8,7 +8,7 @@ require (
 	github.com/go-kit/log v0.2.1
 	github.com/inconshreveable/log15 v2.16.0+incompatible
 	github.com/rs/zerolog v1.34.0
-	github.com/sirupsen/logrus v1.9.3
+	github.com/sirupsen/logrus v1.9.4
 	github.com/stretchr/testify v1.11.1
 	go.uber.org/zap v1.27.1
 )
