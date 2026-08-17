@@ -9,7 +9,7 @@ require (
 	github.com/inconshreveable/log15 v2.16.0+incompatible
 	github.com/rs/zerolog v1.35.1
 	github.com/sirupsen/logrus v1.10.0
-	github.com/stretchr/testify v1.11.1
+	github.com/stretchr/testify v1.12.0
 	go.uber.org/zap v1.28.0
 )
 
