@@ -2,7 +2,7 @@ module github.com/fclairamb/go-log
 
 go 1.23.0
 
-toolchain go1.27.2
+toolchain go1.27.3
 
 require (
 	github.com/go-kit/log v0.2.1
