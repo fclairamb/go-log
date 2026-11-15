@@ -51,9 +51,9 @@ func (t *testLogger) log(level level.Level, msg string, args []interface{}) {
 					sb.WriteString(", ")
 				}
 
-				sb.WriteString(fmt.Sprintf("%v", args[i]))
+				fmt.Fprintf(&sb, "%v", args[i])
 			} else {
-				sb.WriteString(fmt.Sprintf("=\"%v\"", args[i]))
+				fmt.Fprintf(&sb, "=\"%v\"", args[i])
 			}
 		}
 	}
